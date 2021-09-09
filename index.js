@@ -4,6 +4,10 @@ const morgan = require("morgan");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 
+// required routes
+const usersRouters = require("./routes/users.routes");
+const authRoutes = require("./routes/auth.routes");
+
 dotenv.config();
 
 mongoose.connect(
@@ -24,9 +28,9 @@ app.use(express.json());
 app.use(helmet());
 app.use(morgan("common"));
 
-app.get("/", (req, res) => {
-  res.json({ message: "welcome to express.js" });
-});
+// routes
+app.use("/api/users", usersRouters);
+app.use("/api/auth", authRoutes);
 
 app.listen(3000, () => {
   console.log("Server on port 3000");
