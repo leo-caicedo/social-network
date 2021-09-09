@@ -1,0 +1,27 @@
+{
+  "name": "social-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leo-caicedo/social-network.git"
+  },
+  "keywords": [],
+  "author": "Leonardo Caicedo <devleonardocaicedo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leo-caicedo/social-network/issues"
+  },
+  "homepage": "https://github.com/leo-caicedo/social-network#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "mongoose": "^6.0.5",
+    "morgan": "^1.10.0"
+  }
+}
