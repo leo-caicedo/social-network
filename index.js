@@ -19,6 +19,15 @@ mongoose.connect(
 
 const app = express();
 
+// middleware
+app.use(express.json());
+app.use(helmet());
+app.use(morgan("common"));
+
+app.get("/", (req, res) => {
+  res.json({ message: "welcome to express.js" });
+});
+
 app.listen(3000, () => {
   console.log("Server on port 3000");
 });
