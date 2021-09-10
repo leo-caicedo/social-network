@@ -26,7 +26,7 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(helmet());
-app.use(morgan("common"));
+app.use(morgan("dev"));
 
 // routes
 app.use("/api/users", usersRouters);
