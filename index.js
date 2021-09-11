@@ -7,6 +7,7 @@ const dotenv = require("dotenv");
 // required routes
 const usersRouters = require("./routes/users.routes");
 const authRoutes = require("./routes/auth.routes");
+const postsRoutes = require("./routes/posts.routes");
 
 dotenv.config();
 
@@ -31,6 +32,7 @@ app.use(morgan("dev"));
 // routes
 app.use("/api/users", usersRouters);
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postsRoutes);
 
 app.listen(3000, () => {
   console.log("Server on port 3000");
