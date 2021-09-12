@@ -4,6 +4,15 @@ const bcrypt = require("bcrypt");
 // models
 const User = require("../models/User");
 
+router.get("/", async (req, res, next) => {
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (err) {
+    next(err);
+  }
+});
+
 router.get("/:id", async (req, res, next) => {
   const { id } = req.params;
 

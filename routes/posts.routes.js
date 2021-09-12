@@ -2,11 +2,17 @@ const router = require("express").Router();
 
 // models
 const Post = require("../models/Post");
+const User = require("../models/User");
 
-router.get("/", async (req, res, next) => {
+router.get("/timeline", async (req, res, next) => {
   try {
-    const posts = await Post.find({});
-    res.json(posts);
+    const user = await User.findById(req.body.userId);
+    const userPost = await Post.find({ userId: user._id });
+    const followings = user.followings;
+    let followingsPost = await Post.find({
+      userId: followings.map((post) => post),
+    });
+    res.json(followingsPost.concat(userPost));
   } catch (err) {
     next(err);
   }
